@@ -1,0 +1,198 @@
+{% extends "nav.html" %}  
+{% block title %}Home{% endblock title %}
+
+{% block main %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>Title</title>
+<style>
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    body {
+        background-image: url(https://autogpt.net/wp-content/uploads/2023/06/Pogla_A_robot_cooking_1d0a3be0-8268-4962-9290-2c62dc3d53a1-768x512.jpg);
+    background-size: cover;
+    
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    }
+
+
+    #profile {
+        color: black;
+        display: none; /* Hide on small screens */
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .box1 {
+        text-align: center;
+        color: azure;
+    }
+
+    button {
+        margin-top: 100px;
+        border: 10px solid white;
+        
+    }
+/* CSS */
+
+/* CSS */
+button {
+        background-color: #ff9751;
+        border-radius: 100px;
+        box-shadow: rgba(187, 142, 44, 0.2) 0 -25px 18px -14px inset, rgba(187, 130, 44, 0.15) 0 1px 2px, rgba(187, 142, 44, 0.15) 0 2px 4px, rgba(187, 130, 44, 0.15) 0 4px 8px, rgba(187, 142, 44, 0.15) 0 8px 16px, rgba(187, 146, 44, 0.15) 0 16px 32px;
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        display: inline-block;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        padding: 7px 20px;
+        text-align: center;
+        text-decoration: none;
+        transition: all 250ms;
+        border: 0;
+        font-size: 16px;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        margin-top: 100px;
+        height: 80px;
+        width: 160px;
+        animation: pulsate 1.5s infinite;
+    }
+
+    button:hover {
+        background-color: #ff6a06;
+        box-shadow: rgba(255, 174, 0, 0.35) 0 -25px 18px -14px inset, rgba(187, 125, 44, 0.25) 0 1px 2px, rgba(187, 123, 44, 0.25) 0 2px 4px, rgba(187, 127, 44, 0.25) 0 4px 8px, rgba(187, 134, 44, 0.25) 0 8px 16px, rgba(187, 134, 44, 0.25) 0 16px 32px;
+        transform: scale(1.05) rotate(-1deg);
+    }
+
+    @keyframes pulsate {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+        50% {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(52, 152, 219, 0.75);
+        }
+        100% {
+            transform: scale(1);
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+    }
+
+    .typing-container {
+        display: inline-block;
+        border-right: 2px solid black; /* Cursor effect */
+        white-space: nowrap;
+        overflow: hidden; /* Hide overflow */
+        font-size: 36px;
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    @keyframes blink-caret {
+        from, to { border-color: transparent; }
+        50% { border-color: rgb(255, 255, 255); }
+    }
+
+    .typing-effect {
+        animation: typing 2s steps(30, end), blink-caret .75s step-end infinite;
+    }
+
+    @media (max-width: 767px) {
+        #profile {
+            display: none; /* Hide profile link on small screens */
+        }
+
+        .container {
+            padding: 15px;
+        }
+
+        .typing-container {
+            font-size: 24px;
+        }
+
+        button {
+            width: 120px;
+            height: 60px;
+            font-size: 14px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .container {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .box1 {
+            flex: 1;
+        }
+
+        .box2 {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #profile {
+            display: inline; /* Show on larger screens */
+        }
+    }
+
+    .box2 img {
+        max-width: 100%;
+        height: auto;
+    }
+    #icon {
+        width: 60px;
+        height: 60px;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="box1">
+            <div class="title">
+                <h1 class="typing-container typing-effect" style="font-size:70px;">Create your recipe</h1>
+                <h1 class="typing-containe typing-effec" style="font-size:70px;">with Chef Ai</h1>
+            </div>
+            <div class="button">
+                <a href={% url "generate-page" %}><button class="button-33">Get started</button></a>
+            </div>
+        </div>
+        <div class="box2">
+            
+        </div>
+    </div>
+
+{% endblock main %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>

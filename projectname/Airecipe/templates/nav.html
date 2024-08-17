@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>{% block title %}{% endblock title %}</title>
+<style>
+  #navi {
+    -webkit-box-shadow: 4px 10px 106px -26px rgba(255,255,255,1);
+-moz-box-shadow: 4px 10px 106px -26px rgba(255,255,255,1);
+box-shadow: 4px 10px 106px -26px rgba(255,255,255,1);
+  }
+  #icon {
+    width: 60px;
+    height: 60px;
+}
+
+</style>
+
+</head>
+<body>
+  <nav id="navi" class="navbar navbar-expand-lg navbar-dark" style="background-color:rgb(31, 32, 32);">
+        <div class="container-fluid">
+          <a class="navbar-brand" href={% url "index-page" %}><img id="icon" src="https://static.vecteezy.com/system/resources/previews/002/103/001/original/american-fast-food-dark-mode-glyph-icon-vector.jpg" alt="Logo">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href={% url "index-page" %}>Home</a>
+              <a class="nav-link" href={% url "generate-page" %} >Generate</a>
+              <a class="nav-link" href={% url "wishlist-page" %} >Wishlist</a>
+              <a class="nav-link" >My Profile</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!--nav end  -->
+      <!-- sugar tag:-->
+{% block main %}{% endblock main %}
+    
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>
